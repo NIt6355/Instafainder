@@ -1,6 +1,7 @@
-npx create-react-app frontend
-cd frontend
-npm install axios react-router-dommyproject/
+cd backend
+node server.jscd frontend
+npm install  # Install dependencies
+npm start    # Start React appmyproject/
 │── backend/
 │── frontend/
 │   ├── src/
@@ -18,7 +19,7 @@ function App() {
   return (
     <Router>
       <div>
-        <h2>Welcome to Our Website</h2>
+        <h2>🌍 Welcome to Our Website</h2>
         <Routes>
           <Route path="/" element={<Register />} />
           <Route path="/nearby" element={<NearbyUsers />} />
@@ -56,7 +57,7 @@ function Register() {
       });
       alert(response.data.message);
     } catch (error) {
-      alert("Registration failed: " + error.response.data.error);
+      alert("❌ Registration failed: " + (error.response?.data?.error || error.message));
     }
   };
 
@@ -91,7 +92,7 @@ function NearbyUsers() {
       const response = await axios.get(`http://localhost:5000/nearby?lat=${location.lat}&lng=${location.lng}`);
       setUsers(response.data);
     } catch (error) {
-      alert("Error fetching users: " + error.response.data.error);
+      alert("❌ Error fetching users: " + (error.response?.data?.error || error.message));
     }
   };
 
@@ -102,7 +103,7 @@ function NearbyUsers() {
       <input type="text" name="lng" placeholder="Longitude" onChange={handleChange} required />
       <button onClick={fetchNearbyUsers}>Search</button>
       <ul>
-        {users.map((user) => (
+        {users.length === 0 ? <li>No users found</li> : users.map((user) => (
           <li key={user._id}>{user.username} - {user.email}</li>
         ))}
       </ul>
@@ -110,4 +111,4 @@ function NearbyUsers() {
   );
 }
 
-export default NearbyUsers;npm start
+export default NearbyUsers;http://localhost:3000
