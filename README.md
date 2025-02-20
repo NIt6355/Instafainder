@@ -59,4 +59,7 @@ app.get('/find-users', (req, res) => {
     res.json(users);
 });
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+app.listen(3000, () => console.log('Server running on port 3000')); pwd  # (Linux/Mac) - Yeh aapke current directory ka path batayega
+cd   # (Windows) - Yeh aapko current directory ka path dikhayegacd instagram-nearbyls   # (Linux/Mac)
+dir  # (Windows)node server.jsnpm install express corsServer running on http://localhost:3000taskkill /PID <PID_NUMBER> /Flsof -i :3000
+kill -9 <PID_NUMBER>
